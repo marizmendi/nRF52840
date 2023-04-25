@@ -16,16 +16,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          path: example-application
+          path: nRF52840
 
       - name: Initialize
-        working-directory: example-application
+        working-directory: nRF52840
         run: |
           west init -l .
           west update
 
       - name: Build firmware
-        working-directory: example-application
+        working-directory: nRF52840
         run: |
           west build -b nrf52840dongle_nrf52840 app
 
@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: example-application/build/zephyr/zephyr.*
+          path: nRF52840/build/zephyr/zephyr.*
