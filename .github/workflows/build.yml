@@ -14,7 +14,7 @@ jobs:
       CMAKE_PREFIX_PATH: /opt/toolchains
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: nRF52840
 
@@ -30,7 +30,7 @@ jobs:
           west build -b nrf52840dongle_nrf52840 app
 
       - name: Archive firmware
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: firmware
           path: nRF52840/build/zephyr/zephyr.*
